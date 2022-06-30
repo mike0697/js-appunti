@@ -1,0 +1,4 @@
+rndMine();
+rndMine();
+//insertNumberMine();
+printTale();
