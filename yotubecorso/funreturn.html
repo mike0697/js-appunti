@@ -1,0 +1,40 @@
+<head>
+
+    <title>Funzioni Custom</title>
+
+    <style>
+        input{
+            display: block;
+            margin-bottom: 20px;
+        }
+        button{
+            border: none;
+            color: white;
+            background-color: black;
+            border-radius: 20px;
+            padding: 20px;
+        }
+    </style>
+    <body>
+        <input type="text" name = "numero" placeholder="inserisci numero">
+        <button>Calcola cubo</button>
+        <h1></h1>
+
+        <script>
+            let button = document.querySelector('button');
+            let title = document.querySelector('h1');
+            let numero = document.querySelector('input');
+            function cubo(number){
+                let result = number * number * number;
+                console.log(result);
+                
+                return result;
+            }
+
+            button.addEventListener('click', ()=> {
+                title.innerHTML = cubo(numero.value);
+            });
+
+        </script>
+    </body>
+</head>

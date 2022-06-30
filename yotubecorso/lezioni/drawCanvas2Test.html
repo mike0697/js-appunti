@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Canvas test</title>
+
+    </head>
+    <body>
+        <h1 class="mainHeader">Text h1</h1>
+        <canvas id="myCanvas" width="800" height="600" style="background-color:#9999FF;"></canvas> 
+        <script>
+           let canvas = document.getElementById("myCanvas");
+           let c = canvas.getContext("2d");
+           c.beginPath(); 
+                c.lineWith = 10;
+                c.strokeStyle = "#black";
+                c.fillStyle ="green";
+                c.moveTo(100,100);
+                c.lineTo(500,500);
+                c.stroke();
+
+            let c1 = 0;
+            let c2 = 0;
+            let drawLine = false;
+            let canavasRect = canvas.getBoundingClientRect();
+            console.log(canavasRect);
+            
+        canvas.addEventListener("mousedown", function(event){
+            c1 = event.x;
+            c2 = event.y;
+            drawLine = true;
+        });
+
+        canvas.addEventListener("mouseup", (event) => {
+            drawLine = false;
+        }); 
+
+        canvas.addEventListener("mousemove", (event) =>{
+            
+            if(drawLine === true)
+            {     
+                c.beginPath();
+                c.lineWith = 4;
+                c.strokeStyle = "000000";
+                c.moveTo(c1 - canavasRect.left ,c2- canavasRect.top);
+                c1 = event.x;
+                c2 = event.y;
+                c.lineTo(c1- canavasRect.left, c2- canavasRect.top);
+                c.stroke();
+                
+            };
+        });
+      </script>
+
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script>
+            function Persona(nome,cognome,genere, interessi){
+                this.nome = nome;
+                this.cognome = cognome;
+                this.genere = genere;
+                this.interessi = interessi;
+                this.bio = function(){
+                    console.log(`${this.nome} ${this.cognome} è un ${(this.genere == 'Maschio') ? 'un ragazzo' : 'una ragazza'}`);
+
+                }
+            }
+
+            const persona1 = new Persona('Luca', 'Paolo', 'Maschio', 'Cucina');
+            console.log(persona1);
+            persona1.bio();
+        </script>
+    </body>
+</html>

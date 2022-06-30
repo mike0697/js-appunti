@@ -1,0 +1,36 @@
+<head>
+
+    <title>Funzioni Custom</title>
+
+    <style>
+        input{
+            display: block;
+            margin-bottom: 20px;
+        }
+        button{
+            border: none;
+            color: white;
+            background-color: black;
+            border-radius: 20px;
+            padding: 20px;
+        }
+    </style>
+    <body>
+        <input type="text" name = "nome" placeholder="nome persona">
+        <button>Saluta</button>
+        <h1>Nessun saluto</h1>
+
+        <script>
+            let button = document.querySelector('button');
+            let title = document.querySelector('h1');
+            let nome = document.querySelector('input');
+            function saluto(name = 'Marco'){
+                title.innerHTML = `Ciao ${name}`;
+            }
+            button.addEventListener('click', ()=>{
+                saluto(nome.value);
+                
+            });
+        </script>
+    </body>
+</head>

@@ -1,0 +1,19 @@
+<html>
+    <title>ajax</title>
+    <body>
+        <script>
+            //ajax asincrono
+            let classeFetch;
+            let url = './classe.json';
+
+            fetch(url)
+            .then(response => response.json())
+            .then(json =>{
+                classeFetch = json;
+                console.log(classeFetch);
+            });
+            
+
+        </script>
+    </body>
+</html>

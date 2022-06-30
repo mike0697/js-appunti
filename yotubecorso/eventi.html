@@ -1,0 +1,61 @@
+<head>
+
+    <title>Eventi</title>
+
+    <style>
+        input{
+            display: block;
+            margin-bottom: 20px;
+        }
+        button{
+            border: none;
+            color: white;
+            background-color: black;
+            border-radius: 20px;
+            padding: 20px;
+        }
+    </style>
+
+
+
+
+
+    <body>
+        <input type="text" name = "nome" >
+        <button>Saluta</button>
+        <h1>Nessun saluto</h1>
+
+        <script>
+            let button = document.querySelector('button');
+            let title = document.querySelector('h1');
+            let nome = document.querySelector('input');
+            nome.onfocus = function() {
+                console.log('sono in focus');
+            }
+            nome.onclick = function() {
+                console.log('ciao');
+            }
+            nome.addEventListener('focus', function(e){
+                console.log(e.target);
+            });
+
+            button.addEventListener('click', function(e){
+                console.log(e);
+            });
+
+            //oggetto event e
+
+            //e.preventDefault(); // previene l' evento
+
+            /*
+            bubbling
+            prima <html> , poi <div> e infine <video>
+                e.stopPropagation(); //ferma la propagazione
+
+            */
+
+
+            
+        </script>
+    </body>
+</head>

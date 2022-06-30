@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <script>
+            //oggetti
+            //proprietà e metodi
+            //i metodi sono funzioni negli oggetti
+
+            const persona = {
+                nome: 'Luca',
+                cognome: 'Rossi',
+                genere: 'Maschio',
+                eta: 25,
+                interessi: ['snowboard', 'basket'],
+                saluta: function(){
+                    console.log(`Ciao sono ${this.nome}`);
+                }
+            }
+
+
+
+            persona.saluta();
+            console.log(persona.interessi[0]);
+            persona.nome = 'Paolo';
+
+            console.log(persona['nome']);
+        </script>
+    </body>
+</html>

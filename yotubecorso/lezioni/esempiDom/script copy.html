@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Geestore Eventi</title>
+
+    </head>
+    <body>
+        <div class="a"><p id="city">pp2</p><h1>Simpleh1</h1>
+        </div>
+        <h2 id = "my2">test h</h2>
+        <h2 id = "my3">test h3</h2>
+        <p id = "count">a</p>
+
+        <script>
+            //unità 8
+            myHeader = document.getElementById("city");
+            console.log(myHeader);
+            myHeader.innerText = "titolo header";
+            //myHeader.setAttribute("style","color:red");
+            function selectColor(color) {
+                
+                return function changeColor(event) {
+                    event.target.setAttribute("style","color:"+ color);
+                }
+                
+            }
+            /*
+            function changeColoro(event){
+                event.target.setAttribute("style", "color:green");
+            }
+            */
+      
+            myHeader.addEventListener("mouseover", selectColor("blue"));
+
+            myH1 = document.getElementsByTagName("h1");
+            console.log(myH1);
+            myH1[0].addEventListener("click",selectColor("red"));
+
+            let a = document.getElementById("my2");
+            a.onmouseover = selectColor("green");
+
+            setTimeout(function(){myH1.setAttribute("style","color:magenta");}, 2000 );
+            
+            function getNodeC(node){
+                var count = 0;
+                return function(){
+                    node.textContent = count++;
+                }
+            }
+            setInterval(getNodeC(document.getElementById("count")),1000);
+
+
+
+
+
+
+      </script>
+
+    </body>
+</html>

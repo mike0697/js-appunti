@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Canvas test</title>
+
+    </head>
+    <body>
+        <h1 class="mainHeader">Text h1</h1>
+        <canvas id="myCanvas" width="800" height="600" style="background-color:#9999FF;"></canvas> 
+        <script>
+
+            function drawCircle(context, x , y){
+                context.beginPath(); // resetta cordinate ecc..  e inizia a disegnare
+                context.lineWith = 6;
+                context.fillStyle = "#ff0000";
+                context.arc(x,y,50,0,2*Math.PI, true); //radianti
+                context.fillStyle = "#ff0000";
+                context.fill();
+                context.stroke();
+            }
+
+            function drawTriangle(context, x , y){
+                context.beginPath(); 
+                context.lineWith = 6;
+                context.fillStyle ="green";
+                context.moveTo(100+x,100+y);
+                context.lineTo(200+x,200+y);
+                context.lineTo(200+x,100+y);
+                context.lineTo(100+x,100+y);
+                context.fill();
+                context.stroke();
+
+            }
+           let canvas = document.getElementById("myCanvas");
+           let context = canvas.getContext("2d");
+           let circlePosition = 100;
+           let trianglePosition = 300;
+           context.strkStyle="black";
+           context.beginPath();
+           
+            /*
+            let myInterval = setInterval(function(){
+                context.clearRect(0,0,800,600);
+                drawCircle(context,circlePosition, 100);
+                drawTriangle(context,trianglePosition, 100);
+                circlePosition++;
+                trianglePosition--;
+
+           }, 10);
+
+           setTimeout(function(){
+            clearInterval(myInterval);
+            context.clearRect(0,0,800,600);
+        }, 2000);
+        */
+
+        let cX = 0, cY = 0;
+        
+        canvas.addEventListener("mousedown", function(event) {
+            console.log("mouse down");
+            cX = event.x;
+            cY = event.y;
+            canvas.lineDrawing = true;
+        });
+        canvas.addEventListener("mouseup", function(event) 
+        {
+            canvas.lineDrawing = false;
+            console.log("mouse up");
+        });
+
+        canvas.addEventListener("mousemove", function(event)
+        {
+            if(canvas.lineDrawing){
+                console.log("mouse move");
+                
+                context.lineWith = 4;
+                context.strkStyle = "#000000";
+                context.beginPath();
+                context.moveTo(cX, cY);
+                //cX = event.X;
+                let zx = event.x;
+                let zy = event.y;
+                if(typeof zx === undefined)
+                {
+                    console.log("und");
+                }
+                //cY = event.Y;
+                //context.lineTo(canvas.mouseX, canvas.mouseY);
+                context.lineTo(zx, zy);
+                console.log(cX, cY);
+                context.stroke();
+                
+            }
+        });
+           
+
+
+           
+
+
+
+      </script>
+
+    </body>
+</html>
